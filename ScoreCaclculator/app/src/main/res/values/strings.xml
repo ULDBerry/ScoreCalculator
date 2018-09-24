@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">Score Calculator</string>
-    <string name="message_colorid">Color Indentification</string>
-    <string name="message_colorpts">0 Color Points</string>
-    <string name="message_colorptsfin">%d Color Points</string>
-    <string name="message_format">Count= %d</string>
+    <string name="message_colourid">Colour Identification:</string>
+    <string name="message_colourpts">%d colour points</string>
+    <string name="message_pointstotal">%d points</string>
+    <string name="message_wbpoints">%d wb points</string>
+    <string name="message_nearballpoints">%d</string>
+    <string name="message_farballpoints">%d</string>
+    <string name="message_robothomepoints">%d</string>
     <string name="button_3fixes">3 Fixes</string>
     <string name="button_2fixes">2 Fixes</string>
     <string name="button_1fix">1 Fix</string>

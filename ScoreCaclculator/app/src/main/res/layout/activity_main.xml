@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_weight="4"
-            android:text="@string/message_colorid"
+            android:text="@string/message_colourid"
             android:textSize="12sp" />
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.75"
-            android:text="@string/message_colorpts"
+            android:text="@string/message_colourpts"
             android:textSize="12sp" />
 
     </TableRow>
@@ -35,15 +35,16 @@
         android:layout_height="fill_parent">
 
         <Button
-            android:id="@+id/fixes_3"
+            android:onClick="button_fixes3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="12sp"
-            android:text="@string/button_3fixes" />
+            android:text="@string/button_3fixes"
+            />
 
         <Button
-            android:id="@+id/fixes_2"
+            android:onClick="button_fixes2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -51,7 +52,7 @@
             android:text="@string/button_2fixes" />
 
         <Button
-            android:id="@+id/fixes_1"
+            android:onClick="button_fixes1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -59,7 +60,7 @@
             android:text="@string/button_1fix" />
 
         <Button
-            android:id="@+id/fixes_0"
+            android:onClick="button_fixes0"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
