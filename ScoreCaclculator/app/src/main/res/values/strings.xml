@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Score Calculator</string>
+    <string name="message_colorid">Color Indentification</string>
+    <string name="message_colorpts">0 Color Points</string>
+    <string name="message_colorptsfin">%d Color Points</string>
+    <string name="message_format">Count= %d</string>
+    <string name="button_3fixes">3 Fixes</string>
+    <string name="button_2fixes">2 Fixes</string>
+    <string name="button_1fix">1 Fix</string>
+    <string name="button_0fixes">0 Fixes</string>
+    <string name="button_update">Update</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_wbfailure">WB Failure</string>
+    <string name="button_wbsuccess">WB Success</string>
+</resources>
