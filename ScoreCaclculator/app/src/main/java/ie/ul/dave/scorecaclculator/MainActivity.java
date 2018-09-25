@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Variables to be used int he application
     private int mColourPoints = 0;
     private int mNearBallPoints = 0;
     private int mFarBallPoints = 0;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mMessageNearBallPointsView;
     private TextView mMessageFarBallPointsView;
     private TextView mMessageRobotHomePointsView;
+    private TextView mMessageWBPointsView;
+
     //EditTexts
     private EditText mNearBallEditTextView;
     private EditText mFarBallEditTextView;
@@ -48,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         mMessageRobotHomePointsView = findViewById(R.id.message_robothomeint);
         mMessageRobotHomePointsView.setText(getString(R.string.message_robothomepoints,mRobotHomePoints));
 
+        mMessageWBPointsView = findViewById(R.id.message_wbpointsint);
+        mMessageWBPointsView.setText(getString(R.string.message_wbpoints,mWBPoints));
+
 
         //Get whats is typed in
        mNearBallEditTextView = findViewById(R.id.mNearBallEditText);
@@ -56,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Button methods
     public void button_fixes3(View view){
         mColourPoints = 0;
         mMessageColourPointsView.setText(getString(R.string.message_colourpts,mColourPoints));
@@ -79,7 +86,21 @@ public class MainActivity extends AppCompatActivity {
         mMessageColourPointsView.setText(getString(R.string.message_colourpts,mColourPoints));
         updateTotal();
     }
+
+    public void button_wbfailure(View view){
+        mWBPoints = 0;
+        updateWhiteBallPointsDisplayed(mWBPoints);
+        updateTotal();
+    }
+    public void button_wbsuccess(View view){
+        mWBPoints = 60;
+        updateWhiteBallPointsDisplayed(mWBPoints);
+        updateTotal();
+    }
+
     public void button_reset(View view){
+
+        //Set everything to Zero
         mColourPoints = 0;
         mNearBallPoints = 0;
         mFarBallPoints = 0;
@@ -97,9 +118,11 @@ public class MainActivity extends AppCompatActivity {
         updateNearBallPointsDisplayed(mNearBallPoints);
         updateFarBallPointsDisplayed(mFarBallPoints);
         updateRobotHomePointsDisplayed(mRobotHomePoints);
+        updateWhiteBallPointsDisplayed(mWBPoints);
         updateTotal();
     }
 
+    // Update the distance scores
     public void button_update(View view){
 
         int nearBallDistanceFromEditText = 0;
@@ -174,14 +197,10 @@ public class MainActivity extends AppCompatActivity {
             mFarBallPoints = 0;
         }
         updateFarBallPointsDisplayed(mFarBallPoints);
-
-
-
-
         updateTotal();
-
     }
 
+    //Methods to update what is displayed
     private void updateNearBallPointsDisplayed(int mNearBallPoints){
         int mNearBallPointsIn = mNearBallPoints;
         mMessageNearBallPointsView.setText(getString(R.string.message_nearballpoints,mNearBallPoints));
@@ -197,6 +216,11 @@ public class MainActivity extends AppCompatActivity {
         mMessageRobotHomePointsView.setText(getString(R.string.message_robothomepoints,mRobotHomePoints));
     }
 
+    private void updateWhiteBallPointsDisplayed(int mWBPoints){
+        int mWBPointsIn = mWBPoints;
+        mMessageWBPointsView.setText(getString(R.string.message_wbpoints, mWBPoints));
+    }
+
     private void updateColourPoints(int mColourPoints){
         int mColourPointsIn = mColourPoints;
         mMessageColourPointsView.setText(getString(R.string.message_colourpts,mColourPointsIn));
@@ -204,11 +228,9 @@ public class MainActivity extends AppCompatActivity {
 
     //update the total
     private void updateTotal(){
-        mPointsTotal = mColourPoints + mNearBallPoints + mFarBallPoints + mRobotHomePoints;
+        mPointsTotal = mColourPoints + mNearBallPoints + mFarBallPoints + mRobotHomePoints + mWBPoints;
         mMessageTotalPointView.setText(getString(R.string.message_pointstotal, mPointsTotal));
 
     }
-
-
 
 }
