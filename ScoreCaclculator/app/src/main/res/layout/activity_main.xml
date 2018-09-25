@@ -121,6 +121,7 @@
             />
 
         <EditText
+            android:id="@+id/mNearBallEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -129,9 +130,10 @@
             />
 
         <TextView
+            android:id="@+id/message_nearballint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="NB"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="12sp"
@@ -150,6 +152,7 @@
             />
 
         <EditText
+            android:id="@+id/mFarBallEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -158,9 +161,10 @@
             />
 
         <TextView
+            android:id="@+id/message_farballint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="FB"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="12sp"
@@ -178,6 +182,7 @@
             android:textSize="12sp" />
 
         <EditText
+            android:id="@+id/mRobotHomeEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -185,9 +190,10 @@
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/message_robothomeint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="RH"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="12sp"
@@ -199,13 +205,11 @@
         android:layout_height="fill_parent">
 
         <Button
+            android:onClick="button_update"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/button_update" />
-
-
-
     </TableRow>
 
     <TableRow >
@@ -277,6 +281,7 @@
 
 
         <Button
+            android:onClick="button_reset"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
