@@ -262,9 +262,10 @@
     <TableRow>
 
         <TextView
+            android:id="@+id/message_totalpoints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="points"
+            android:text="0 Total Points"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="24sp"
