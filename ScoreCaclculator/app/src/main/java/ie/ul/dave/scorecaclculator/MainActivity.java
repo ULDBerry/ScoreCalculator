@@ -14,12 +14,17 @@ public class MainActivity extends AppCompatActivity {
     private int mRobotHomePoints = 0;
     private int mWBPoints = 0;
     private int mPointsTotal = 0;
+
+    //TextViews
     private TextView mMessageColourPointsView;
     private TextView mMessageTotalPointView;
     private TextView mMessageNearBallPointsView;
+    private TextView mMessageFarBallPointsView;
+    private TextView mMessageRobotHomePointsView;
+    //EditTexts
     private EditText mNearBallEditTextView;
-    private EditText mFareBallEditTextView;
-    private EditText mRobotHomeEditTestView;
+    private EditText mFarBallEditTextView;
+    private EditText mRobotHomeEditTextView;
 
 
     @Override
@@ -37,7 +42,17 @@ public class MainActivity extends AppCompatActivity {
        mMessageNearBallPointsView = findViewById(R.id.message_nearballint);
        mMessageNearBallPointsView.setText(getString(R.string.message_nearballpoints,mNearBallPoints));
 
+        mMessageFarBallPointsView = findViewById(R.id.message_farballint);
+        mMessageFarBallPointsView.setText(getString(R.string.message_farballpoints,mFarBallPoints));
+
+        mMessageRobotHomePointsView = findViewById(R.id.message_robothomeint);
+        mMessageRobotHomePointsView.setText(getString(R.string.message_robothomepoints,mRobotHomePoints));
+
+
+        //Get whats is typed in
        mNearBallEditTextView = findViewById(R.id.mNearBallEditText);
+       mFarBallEditTextView = findViewById(R.id.mFarBallEditText);
+       mRobotHomeEditTextView = findViewById(R.id.mRobotHomeEditText);
 
     }
 
@@ -71,15 +86,27 @@ public class MainActivity extends AppCompatActivity {
         mRobotHomePoints = 0;
         mWBPoints = 0;
         mPointsTotal = 0;
+
+        //Reset the edit text
+        mNearBallEditTextView.setText("");
+        mFarBallEditTextView.setText("");
+        mRobotHomeEditTextView.setText("");
+
+        //Update the points displayed
         updateColourPoints(mColourPoints);
         updateNearBallPointsDisplayed(mNearBallPoints);
+        updateFarBallPointsDisplayed(mFarBallPoints);
+        updateRobotHomePointsDisplayed(mRobotHomePoints);
         updateTotal();
     }
 
     public void button_update(View view){
 
         int nearBallDistanceFromEditText = 0;
-        //Test for an integer
+        int farBallDistanceFromEditText = 0;
+        int robotHomeDistanceFromEditText = 0;
+
+        //Test for an integer nearBall
         try {
             nearBallDistanceFromEditText = Integer.parseInt(mNearBallEditTextView.getText().toString());
         } catch (NumberFormatException e)
@@ -87,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             nearBallDistanceFromEditText = 300;
         }
 
-        if (nearBallDistanceFromEditText >=0 && nearBallDistanceFromEditText <= 5){
+        if (nearBallDistanceFromEditText <= 5){
             mNearBallPoints = 110;
         } else if (nearBallDistanceFromEditText > 5 && nearBallDistanceFromEditText <= 10) {
             mNearBallPoints = 100;
@@ -102,6 +129,51 @@ public class MainActivity extends AppCompatActivity {
         }
         updateNearBallPointsDisplayed(mNearBallPoints);
 
+        //Test for an integer nearRobotHome
+        try {
+            robotHomeDistanceFromEditText = Integer.parseInt(mRobotHomeEditTextView.getText().toString());
+        } catch (NumberFormatException e)
+        {
+            robotHomeDistanceFromEditText = 300;
+        }
+
+        if (robotHomeDistanceFromEditText <= 5){
+            mRobotHomePoints = 110;
+        } else if (robotHomeDistanceFromEditText > 5 && robotHomeDistanceFromEditText <= 10) {
+            mRobotHomePoints = 100;
+        } else if (robotHomeDistanceFromEditText > 10 && robotHomeDistanceFromEditText <= 20) {
+            mRobotHomePoints = 80;
+        } else if (robotHomeDistanceFromEditText > 20 && robotHomeDistanceFromEditText <= 30) {
+            mRobotHomePoints = 50;
+        } else if (robotHomeDistanceFromEditText > 30 && robotHomeDistanceFromEditText <= 45) {
+            mRobotHomePoints = 10;
+        } else if  (robotHomeDistanceFromEditText > 45) {
+            mRobotHomePoints = 0;
+        }
+        updateRobotHomePointsDisplayed(mRobotHomePoints);
+
+        //Test for an integer farBall
+        try {
+            farBallDistanceFromEditText = Integer.parseInt(mFarBallEditTextView.getText().toString());
+        } catch (NumberFormatException e)
+        {
+            farBallDistanceFromEditText = 300;
+        }
+
+        if (farBallDistanceFromEditText <= 5){
+            mFarBallPoints = 220;
+        } else if (farBallDistanceFromEditText > 5 && farBallDistanceFromEditText <= 10) {
+            mFarBallPoints = 200;
+        } else if (farBallDistanceFromEditText > 10 && farBallDistanceFromEditText <= 20) {
+            mFarBallPoints = 160;
+        } else if (farBallDistanceFromEditText > 20 && farBallDistanceFromEditText <= 30) {
+            mFarBallPoints = 100;
+        } else if (farBallDistanceFromEditText > 30 && farBallDistanceFromEditText <= 45) {
+            mFarBallPoints = 20;
+        } else if  (farBallDistanceFromEditText > 45) {
+            mFarBallPoints = 0;
+        }
+        updateFarBallPointsDisplayed(mFarBallPoints);
 
 
 
@@ -115,6 +187,16 @@ public class MainActivity extends AppCompatActivity {
         mMessageNearBallPointsView.setText(getString(R.string.message_nearballpoints,mNearBallPoints));
     }
 
+    private void updateFarBallPointsDisplayed(int mFarBallPoints){
+        int mFarBallPointsIn = mFarBallPoints;
+        mMessageFarBallPointsView.setText(getString(R.string.message_farballpoints,mFarBallPoints));
+    }
+
+    private void updateRobotHomePointsDisplayed(int mRobotHomePoints){
+        int mRobotHomePointsIn = mRobotHomePoints;
+        mMessageRobotHomePointsView.setText(getString(R.string.message_robothomepoints,mRobotHomePoints));
+    }
+
     private void updateColourPoints(int mColourPoints){
         int mColourPointsIn = mColourPoints;
         mMessageColourPointsView.setText(getString(R.string.message_colourpts,mColourPointsIn));
@@ -122,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
 
     //update the total
     private void updateTotal(){
-        mPointsTotal = mColourPoints + mNearBallPoints;
+        mPointsTotal = mColourPoints + mNearBallPoints + mFarBallPoints + mRobotHomePoints;
         mMessageTotalPointView.setText(getString(R.string.message_pointstotal, mPointsTotal));
 
     }
